@@ -1,3 +1,68 @@
 extends ../partials/header
 block main
-  
+  .all-content-inner-wrapper
+    .slider-wrapper
+      .slider-inner-wrapper
+        each slide in slider
+          article.each-slide-wrapper
+            .each-slide-image-wrapper
+              img.each-slide-image(src=slide.image alt=slide.description)
+            .each-slide-content-wrapper
+              p.each-slide-text= slide.description
+              a.each-slide-button(href=slide.link)
+                span.each-slide-button-text Explore
+                svg.each-slide-button-icon(viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg')
+                  path(d='M2 0V1H8.295L0 9.295L0.705 10L9 1.705V8H10V0H2Z')
+      .slider-bullets-wrapper
+        - for (let i = 0; i < slider.length; i++)
+          .each-slider-bullet(class=(i == 0 ? 'active-slider-bullet' : ''))
+    .event-types-title-wrapper
+      h2.each-event-types-title.active-event-types-title#best-sellers-button Çok Satanlar
+      h2.each-event-types-title#latest-button Yeni Satışta & Yakında
+    .best-sellers-wrapper
+      each event in best_sellers
+        .each-event-wrapper
+          .each-event-time-wrapper
+            h1.each-event-date= event.date
+            h4.each-event-hour= event.hour
+          .each-event-name-wrapper
+            h1.each-event-organizer= event.organizer
+            h2.each-event-campaign= event.campaign
+          h3.each-event-place= event.place
+          h1.each-event-price= event.price
+          svg.each-event-icon(viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg')
+            path(d='M7.293 1.70703L13.586 8.00003H0V10H13.586L7.293 16.293L8.707 17.707L17.414 9.00003L8.707 0.29303L7.293 1.70703Z')
+    .latest-wrapper(style='display: none')
+      each event in latest
+        .each-event-wrapper
+          .each-event-time-wrapper
+            h1.each-event-date= event.date
+            h4.each-event-hour= event.hour
+          .each-event-name-wrapper
+            h1.each-event-organizer= event.organizer
+            h2.each-event-campaign= event.campaign
+          h3.each-event-place= event.place
+          h1.each-event-price= event.price
+          svg.each-event-icon(viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg')
+            path(d='M7.293 1.70703L13.586 8.00003H0V10H13.586L7.293 16.293L8.707 17.707L17.414 9.00003L8.707 0.29303L7.293 1.70703Z')
+    each custom_slider in custom_sliders
+      article.custom-slider-wrapper
+        h1.custom-slider-title= custom_slider.title
+        .custom-slider-events-outer-wrapper
+          .each-custom-slider-button-wrapper
+            .each-custom-slider-event-button
+              svg.each-custom-slider-event-button-icon(viewBox='0 0 19 32' fill='none' xmlns='http://www.w3.org/2000/svg')
+                path(d='M0.625 16L16.25 0.375L18.4375 2.5625L5 16L18.4375 29.4375L16.25 31.625L0.625 16Z')
+          .custom-slider-events-wrapper
+            each event in custom_slider.events
+              a.each-custom-slider-event(href=event.link)
+                img.each-custom-slider-event-image(src=event.image alt=event.organizer)
+                h1.each-custom-slider-event-price= event.price
+                h2.each-custom-slider-event-organizer= event.organizer
+                .each-custom-slider-event-info-wrapper
+                  h3.each-custom-slider-event-date= event.date
+                  h3.each-custom-slider-event-place= event.place
+          .each-custom-slider-button-wrapper
+            .each-custom-slider-event-button
+              svg.each-custom-slider-event-button-icon(viewBox='0 0 19 32' fill='none' xmlns='http://www.w3.org/2000/svg')
+                path(d='M18.375 16L2.75 31.625L0.5625 29.4375L14 16L0.5625 2.5625L2.75 0.375L18.375 16Z')
