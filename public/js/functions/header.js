@@ -68,6 +68,8 @@ window.addEventListener('load', () => {
     })
   });
 
+  const allFooterBottomLeftInputField = document.querySelector('.all-footer-bottom-left-input-field');
+
   addEventListener('click', event => {
     if (event.target.closest('#all-header-change-currency-button')) {
       console.log('change currency button');
@@ -88,5 +90,9 @@ window.addEventListener('load', () => {
     if (event.target.closest('.all-header-main-search-field')) {
       allHeaderMainSearchField.dispatchEvent(new Event('input', { bubbles: true }));
     }
-  });
-})
+
+    if (event.target.closest('.all-footer-bottom-left-input-button')) {
+      console.log('mail to link', allFooterBottomLeftInputField.value);
+    }
+  })
+});
