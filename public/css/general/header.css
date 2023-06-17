@@ -404,6 +404,7 @@
   gap: calc(var(--box-padding) * 2);
   background-color: var(--color-three);
   padding: calc(var(--box-padding) * 2) var(--page-horizontal-padding);
+  margin-top: -1px;
 }
 
 .all-footer-top-wrapper {
