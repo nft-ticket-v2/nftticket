@@ -30,7 +30,7 @@
   flex-direction: column;
   padding: 0 var(--page-horizontal-padding);
   background: linear-gradient(180deg, var(--color-one) 0%, var(--color-two) 58.85%, var(--color-three) 100%);
-  padding-top: 100px;
+  padding-top: 250px;
   padding-bottom: 400px;
 }
 
