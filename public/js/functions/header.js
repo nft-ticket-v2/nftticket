@@ -23,6 +23,8 @@ window.addEventListener('load', () => {
 
   const allHeaderMainSearchDropdownNoResultItem = document.getElementById('all-header-main-search-dropdown-no-result-item');
   allHeaderMainSearchField.addEventListener('input', () => {
+    document.querySelector('.each-selected-header-main-search-dropdown-item')?.classList.remove('each-selected-header-main-search-dropdown-item');
+    selectedIndexOfHeaderMainSearchDropdownItems = -1;
     if (allHeaderMainSearchField.value.length > 0) {
       allHeaderMainSearchDropdownNoResultItem.style.display = 'none';
       allHeaderMainSearchDropdownWrapper.style.display = 'flex';
@@ -71,6 +73,9 @@ window.addEventListener('load', () => {
   const allFooterBottomLeftInputField = document.querySelector('.all-footer-bottom-left-input-field');
 
   addEventListener('click', event => {
+    document.querySelector('.each-selected-header-main-search-dropdown-item')?.classList.remove('each-selected-header-main-search-dropdown-item');
+    selectedIndexOfHeaderMainSearchDropdownItems = -1;
+
     if (event.target.closest('#all-header-change-currency-button')) {
       console.log('change currency button');
     }
@@ -91,8 +96,39 @@ window.addEventListener('load', () => {
       allHeaderMainSearchField.dispatchEvent(new Event('input', { bubbles: true }));
     }
 
+    if (event.target.closest('.all-header-main-search-icon')) {
+      console.log('search icon', allHeaderMainSearchField.value);
+    }
+
     if (event.target.closest('.all-footer-bottom-left-input-button')) {
       console.log('mail to link', allFooterBottomLeftInputField.value);
     }
-  })
+  });
+
+  let selectedIndexOfHeaderMainSearchDropdownItems = -1;
+  addEventListener('keydown', event => {
+    const allHeaderMainSearchDropdownItems = document.querySelectorAll('.each-header-main-search-dropdown-item[style="display: flex;"]')
+
+    if (event.target.closest('.all-header-main-search-field') && allHeaderMainSearchDropdownItems.length) {
+      if (event.key === 'ArrowDown') {
+        document.querySelector('.each-selected-header-main-search-dropdown-item')?.classList.remove('each-selected-header-main-search-dropdown-item');
+        selectedIndexOfHeaderMainSearchDropdownItems = selectedIndexOfHeaderMainSearchDropdownItems < allHeaderMainSearchDropdownItems.length - 1 ? selectedIndexOfHeaderMainSearchDropdownItems + 1 : 0;
+        allHeaderMainSearchDropdownItems[selectedIndexOfHeaderMainSearchDropdownItems].classList.add('each-selected-header-main-search-dropdown-item');
+      }
+
+      if (event.key === 'ArrowUp') {
+        document.querySelector('.each-selected-header-main-search-dropdown-item')?.classList.remove('each-selected-header-main-search-dropdown-item');
+        selectedIndexOfHeaderMainSearchDropdownItems = selectedIndexOfHeaderMainSearchDropdownItems > 0 ? selectedIndexOfHeaderMainSearchDropdownItems - 1 : allHeaderMainSearchDropdownItems.length - 1;
+        allHeaderMainSearchDropdownItems[selectedIndexOfHeaderMainSearchDropdownItems].classList.add('each-selected-header-main-search-dropdown-item');
+      }
+
+      if (event.key === 'Enter') {
+        if (selectedIndexOfHeaderMainSearchDropdownItems !== -1) {
+          allHeaderMainSearchField.value = allHeaderMainSearchDropdownItems[selectedIndexOfHeaderMainSearchDropdownItems].textContent;
+          allHeaderMainSearchDropdownWrapper.style.display = 'none';
+          document.getElementById('all-header-main-search-button').click();
+        }
+      }
+    }
+  });
 });
