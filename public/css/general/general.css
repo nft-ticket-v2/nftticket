@@ -62,6 +62,7 @@ input[type=number] {
 
   --text-color: rgba(1, 1, 1, 1);
   --text-color-two: rgba(46, 46, 46, 1);
+  --text-color-three: rgba(43, 43, 43, 1);
 
   --background-color: rgba(254, 254, 254, 1);
 }
