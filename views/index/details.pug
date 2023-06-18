@@ -34,15 +34,66 @@ block main
         h1.tickets-header-title Filtrele
         .tickets-header-on-sale-filter-button
           .tickets-header-on-sale-filter-icon
-            .tickets-header-on-sale-filter-icon-innor-circle
+            .tickets-header-on-sale-filter-icon-inner-circle
           .tickets-header-on-sale-filter-text Satışta
-        //- .tickets-header-search-wrapper
-        //-   input.tickets-header-search-input(type='text' placeholder='Bilet ara')
-        //-   svg.tickets-header-search-icon(viewBox='0 0 21 21' xmlns='http://www.w3.org/2000/svg')
-        //-     path(d='M20.7501 19.6896L15.086 14.0255C16.447 12.3915 17.1257 10.2958 16.9809 8.17412C16.836 6.05248 15.8788 4.06836 14.3084 2.63451C12.7379 1.20065 10.6751 0.427456 8.54906 0.475768C6.42304 0.52408 4.39748 1.39018 2.89377 2.89389C1.39006 4.39761 0.523958 6.42316 0.475646 8.54918C0.427334 10.6752 1.20053 12.738 2.63438 14.3085C4.06824 15.8789 6.05236 16.8362 8.17399 16.981C10.2956 17.1258 12.3914 16.4471 14.0254 15.0861L19.6895 20.7502L20.7501 19.6896ZM2.00006 8.75018C2.00006 7.41515 2.39594 6.11011 3.13764 5.00008C3.87933 3.89005 4.93354 3.02488 6.16694 2.51399C7.40034 2.0031 8.75754 1.86943 10.0669 2.12988C11.3763 2.39033 12.579 3.0332 13.523 3.97721C14.467 4.92121 15.1099 6.12395 15.3704 7.43332C15.6308 8.74269 15.4971 10.0999 14.9862 11.3333C14.4754 12.5667 13.6102 13.6209 12.5002 14.3626C11.3901 15.1043 10.0851 15.5002 8.75006 15.5002C6.96045 15.4982 5.24472 14.7864 3.97928 13.521C2.71384 12.2555 2.00204 10.5398 2.00006 8.75018Z')
-        //- .tickets-header-sort-wrapper
-        //-   span.tickets-header-sort-title Sıralama Ölçütü: 
-        //-   .tickets-header-sort-text Fiyat Çoktan Aza
-        //-   svg.tickets-header-sort-icon(viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg')
-        //-     path(d='M5 5.9998L-3.0598e-08 0.999804L0.7 0.299804L5 4.5998L9.3 0.299805L10 0.999804L5 5.9998Z')
+        label.tickets-header-search-wrapper
+          input.tickets-header-search-input(type='text' placeholder='Bilet ara')
+          svg.tickets-header-search-icon(viewBox='0 0 21 21' xmlns='http://www.w3.org/2000/svg')
+            path(d='M20.7501 19.6896L15.086 14.0255C16.447 12.3915 17.1257 10.2958 16.9809 8.17412C16.836 6.05248 15.8788 4.06836 14.3084 2.63451C12.7379 1.20065 10.6751 0.427456 8.54906 0.475768C6.42304 0.52408 4.39748 1.39018 2.89377 2.89389C1.39006 4.39761 0.523958 6.42316 0.475646 8.54918C0.427334 10.6752 1.20053 12.738 2.63438 14.3085C4.06824 15.8789 6.05236 16.8362 8.17399 16.981C10.2956 17.1258 12.3914 16.4471 14.0254 15.0861L19.6895 20.7502L20.7501 19.6896ZM2.00006 8.75018C2.00006 7.41515 2.39594 6.11011 3.13764 5.00008C3.87933 3.89005 4.93354 3.02488 6.16694 2.51399C7.40034 2.0031 8.75754 1.86943 10.0669 2.12988C11.3763 2.39033 12.579 3.0332 13.523 3.97721C14.467 4.92121 15.1099 6.12395 15.3704 7.43332C15.6308 8.74269 15.4971 10.0999 14.9862 11.3333C14.4754 12.5667 13.6102 13.6209 12.5002 14.3626C11.3901 15.1043 10.0851 15.5002 8.75006 15.5002C6.96045 15.4982 5.24472 14.7864 3.97928 13.521C2.71384 12.2555 2.00204 10.5398 2.00006 8.75018Z')
+        .tickets-header-sort-wrapper
+          span.tickets-header-sort-title Sıralama Ölçütü: 
+          .tickets-header-sort-text Fiyat Çoktan Aza
+          svg.tickets-header-sort-icon(viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg')
+            path(d='M5 5.9998L-3.0598e-08 0.999804L0.7 0.299804L5 4.5998L9.3 0.299805L10 0.999804L5 5.9998Z')
       .tickets-content-wrapper
+        .tickets-content-filters-wrapper
+          .tickets-content-each-filter-group-wrapper
+            h1.tickets-content-each-filter-title Durum
+            .tickets-content-each-filter-option-wrapper
+              .tickets-content-each-filter-option-icon
+                .tickets-content-each-filter-option-icon-inner-circle
+              .tickets-content-each-filter-option-text Initial
+            .tickets-content-each-filter-option-wrapper
+              .tickets-content-each-filter-option-icon
+                .tickets-content-each-filter-option-icon-inner-circle(style='display: none;')
+              .tickets-content-each-filter-option-text Listed
+            .tickets-content-each-filter-option-wrapper
+              .tickets-content-each-filter-option-icon
+                .tickets-content-each-filter-option-icon-inner-circle(style='display: none;')
+              .tickets-content-each-filter-option-text On Auction
+            .tickets-content-each-filter-option-wrapper
+              .tickets-content-each-filter-option-icon
+                .tickets-content-each-filter-option-icon-inner-circle(style='display: none;')
+              .tickets-content-each-filter-option-text Has Offers
+          .tickets-content-each-filter-group-wrapper
+            h1.tickets-content-each-filter-title Bilet Tipi
+            .tickets-content-each-filter-option-wrapper
+              .tickets-content-each-filter-option-icon
+                .tickets-content-each-filter-option-icon-inner-circle
+              .tickets-content-each-filter-option-text Genel Satış
+            .tickets-content-each-filter-option-wrapper
+              .tickets-content-each-filter-option-icon
+                .tickets-content-each-filter-option-icon-inner-circle(style='display: none;')
+              .tickets-content-each-filter-option-text Öğrenci
+            .tickets-content-each-filter-option-wrapper
+              .tickets-content-each-filter-option-icon
+                .tickets-content-each-filter-option-icon-inner-circle(style='display: none;')
+              .tickets-content-each-filter-option-text 65 Yaş Üstü
+        .tickets-content-inner-wrapper
+          each ticket in tickets
+            .each-ticket-wrapper
+              h1.each-ticket-name= event.name
+              .each-ticket-event-info-wrapper
+                h2.each-ticket-event-info= event.date
+                h2.each-ticket-event-info= event.hour
+                h2.each-ticket-event-info= event.place
+              img.each-ticket-image(src=event.image alt=event.name)
+              h1.each-ticket-price= ticket.price
+              .each-ticket-ticket-info-wrapper
+                h2.each-ticket-category= ticket.category
+                h2.each-ticket-info
+                  span Koltuk
+                  bold #{ticket.seat}
+                h2.each-ticket-info
+                  span Sıra
+                  bold #{ticket.row}

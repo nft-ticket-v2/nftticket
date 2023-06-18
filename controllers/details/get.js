@@ -12,7 +12,7 @@ module.exports = (req, res) => {
       _id: '',
       type: '',
       name: 'Mor ve Ötesi',
-      date: '23 Haziran 2023',
+      date: '23 Haz',
       hour: '21.00',
       organizer: 'Harun Tekin',
       campaign: '',
